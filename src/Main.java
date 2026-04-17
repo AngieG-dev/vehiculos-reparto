@@ -134,7 +134,13 @@ public class Main {
             return;
         }
 
-        // Agregar lógica para marcar el vehículo como no disponible
+        //obtener vehiculo y se le resta 1 porque los arrays empiezan en 0
+        Vehiculo vehiculoSeleccionado = disponibles.get(seleccion - 1);
+        vehiculoSeleccionado.setDisponible(false);
+
+        System.out.println("\nEl vehículo con patente " + vehiculoSeleccionado.getPatente() + " ha sido marcado como NO disponible.");
+        System.out.println("\nPresione Enter para volver al menú...");
+        scanner.nextLine();
     }
 
     public static void mostrarReporteGeneral() {
