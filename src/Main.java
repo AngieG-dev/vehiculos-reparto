@@ -77,7 +77,7 @@ public class Main {
         // Diego
     }
 
-    public static void mostrarTodosLosVehiculos(List<Vehiculo> vehiculos) {
+    public static void mostrarTodosLosVehiculos() {
         System.out.println("\n===============================================");
         System.out.println("       LISTADO COMPLETO DE VEHÍCULOS");
         System.out.println("===============================================");
@@ -252,6 +252,4 @@ public class Main {
             System.out.println(" Error: ya existe un vehículo con esa patente. Ingrese otra.");
         }
     }
-
-
 }
