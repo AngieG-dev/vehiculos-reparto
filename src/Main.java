@@ -55,6 +55,24 @@ public class Main {
 
     }
 
+    // Tu método registrarFurgon
+    private static void registrarFurgon() {
+        System.out.println("\n--- Registro de Furgón ---");
+        String patente = leerPatenteUnica();
+        String marca = leerStringNoVacio("Marca: ");
+        String modelo = leerStringNoVacio("Modelo: ");
+        double capacidad = leerDouble("Capacidad de carga (kg): ");
+        double volumen = leerDouble("Volumen interior (m³): ");
+
+        try {
+            Furgon furgon = new Furgon(patente, marca, modelo, capacidad, volumen);
+            vehiculos.add(furgon);
+            System.out.println(" Furgón registrado con éxito.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(" Error: " + e.getMessage());
+        }
+    }
+
     public static void mostrarTodosLosVehiculos(List<Vehiculo> vehiculos) {
         System.out.println("\n===============================================");
         System.out.println("       LISTADO COMPLETO DE VEHÍCULOS");
@@ -175,6 +193,7 @@ public class Main {
         System.out.println("Saliendo...");
     }
 
+    // Métodos auxiliares
     private static int leerEntero(String mensaje) {
         while (true) {
             System.out.print(mensaje);
@@ -225,21 +244,5 @@ public class Main {
         }
     }
 
-    // Tu método registrarFurgon
-    private static void registrarFurgon() {
-        System.out.println("\n--- Registro de Furgón ---");
-        String patente = leerPatenteUnica();
-        String marca = leerStringNoVacio("Marca: ");
-        String modelo = leerStringNoVacio("Modelo: ");
-        double capacidad = leerDouble("Capacidad de carga (kg): ");
-        double volumen = leerDouble("Volumen interior (m³): ");
 
-        try {
-            Furgon furgon = new Furgon(patente, marca, modelo, capacidad, volumen);
-            vehiculos.add(furgon);
-            System.out.println(" Furgón registrado con éxito.");
-        } catch (IllegalArgumentException e) {
-            System.out.println(" Error: " + e.getMessage());
-        }
-    }
 }
