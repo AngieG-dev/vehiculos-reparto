@@ -99,13 +99,13 @@ public class Main {
         // Alexander
     }
     
-    public static void marcarVehiculo(){
+    public static void marcarVehiculoNoDisponible() {
 
         System.out.println("=== MARCAR VEHICULO COMO NO DISPONIBLE ===\n");
 
-        List<String> disponibles = new ArrayList<>();
-        for (String vehiculo : nombreVehiculos) {
-            if (estadoVehiculo.get(vehiculo).equals("Disponible")) {
+        List<Vehiculo> disponibles = new ArrayList<>();
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.isDisponible()) {
                 disponibles.add(vehiculo);
             }
         }
@@ -116,11 +116,10 @@ public class Main {
             scanner.nextLine();
             return;
         }
+
         System.out.println("Vehiculos disponibles:");
         for (int i = 0; i < disponibles.size(); i++) {
-            String vehiculos = disponibles.get(i);
-            String marca = marcaVehiculo.get(vehiculo);
-            System.out.println((i + 1) + ". " + animal + " (" + especie + ")");
+            System.out.println((i + 1) + ". " + disponibles.get(i).getPatente());
         }
 
         System.out.print("\nElige el número del vehiculo a marcar: ");
@@ -133,6 +132,8 @@ public class Main {
             scanner.nextLine();
             return;
         }
+
+        // Agregar lógica para marcar el vehículo como no disponible
     }
 
     public void mostrarReporteGeneral() {
